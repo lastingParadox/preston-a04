@@ -8,15 +8,15 @@ class Solution41 {
     Output and run methods
     ..
     +String listOutput()
-    +{abstract} void main()
+    +{static} void main()
 }
 note right of Solution41::createListofNames()
     Contains FileReader to
-    exercise41 input
+    exercise41_input.txt
 end note
 note right of Solution41::main
     Contains FileWriter to
-    exercise41 output
+    exercise41_output.txt
 end note
 
 @enduml

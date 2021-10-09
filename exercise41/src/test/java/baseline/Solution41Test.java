@@ -7,13 +7,11 @@ package baseline;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class Solution41Test {
 
@@ -51,7 +49,7 @@ class Solution41Test {
             e.printStackTrace();
         }
 
-        List<String> actual = new ArrayList<>();
+        List<String> actual;
         actual = test.sortNames(names);
 
         List<String> expected = new ArrayList<>();

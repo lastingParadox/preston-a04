@@ -39,22 +39,33 @@ public class Solution41 {
         //Returns a string representing the table of sorted names.
         StringBuilder output = new StringBuilder();
         output.append(String.format("Total of %d names%n", names.size()));
-        output.append("-----------------%n");
+        output.append("-----------------");
         for (String name : names) {
             output.append(String.format("%n%s", name));
         }
         return String.valueOf(output);
     }
 
-    public static void main(String[] arg) {
+    public static void main(String[] arg) throws IOException {
+        //Based on a list of names in exercise41_input.txt, sorts and outputs the list.
+        Solution41 sorter = new Solution41();
+        //Creates and or modifies the output file and closes it after the output is sorted and printed.
+        try (FileWriter out = new FileWriter("../exercise41/data/exercise41_output.txt")) {
 
-        //Create new instance of Solution41 "sorter"
+            List<String> names = new ArrayList<>();
+            try {
+                names = sorter.createListOfNames();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
 
-        //List "names" is equal to sorter.createArrayOfNames()
-        //names is equal to sorter.sortNames()
+            names = sorter.sortNames(names);
 
-        //String "output" is equal to sorter.listOutput()
-        //Print output to terminal
-        //Write output to "exercise41_output.txt"
+            String output = sorter.listOutput(names);
+
+            System.out.println(output);
+            out.write(output);
+        }
     }
 }
