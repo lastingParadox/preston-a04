@@ -1,16 +1,22 @@
 @startuml
 class Solution41 {
-    File I/O Objects
-    ..
-    -FileInputStream in
-    -FileOutputStream out
-    --
     Read and sort name list methods
     ..
     +List<String> createListofNames()
     +List<String> sortNames()
+    --
+    Output and run methods
     ..
     +String listOutput()
     +{abstract} void main()
 }
+note right of Solution41::createListofNames()
+    Contains FileReader to
+    exercise41 input
+end note
+note right of Solution41::main
+    Contains FileWriter to
+    exercise41 output
+end note
+
 @enduml
