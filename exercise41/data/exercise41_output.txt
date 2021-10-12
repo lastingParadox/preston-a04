@@ -1,9 +1,10 @@
-Total of 7 names
+Total of 8 names
 -----------------
 Johnson, Jim
 Jones, Aaron
 Jones, Chris
 Ling, Mai
 Swift, Geoffrey
+Wazowski, Mike
 Xiong, Fong
 Zarnecki, Sabrina
