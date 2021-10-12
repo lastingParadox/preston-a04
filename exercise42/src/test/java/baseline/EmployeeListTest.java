@@ -46,6 +46,7 @@ class EmployeeListTest {
         expected.add(test.createEmployee("Zarnecki", "Sabrina", "51500"));
 
         List<Map<String, String>> actual = new ArrayList<>();
+        //Tries to set actual to the list of employees in "exercise42_input.txt"
         try {
             actual = test.createEmployeeList();
         } catch (IOException e) {
