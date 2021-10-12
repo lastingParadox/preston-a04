@@ -6,7 +6,7 @@ class EmployeeList {
 }
 
 class Solution42 {
-    + String listOutput()
+    - String listOutput()
     + {Static} void main()
 }
 

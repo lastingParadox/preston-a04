@@ -6,20 +6,23 @@
 package baseline;
 
 import java.util.List;
+import java.util.Map;
 
 public class Solution42 {
 
-    public String listOutput(List<String> employees) {
-        //Create a StringBuilder "output"
+    private String listOutput(List<Map<String, String>> employees) {
+        //Returns the table containing the employees' last names, first names, and salaries.
+        StringBuilder output = new StringBuilder();
 
-        //Append "Last      First     Salary\n" to output
-        //Append "--------------------------\n" to output
+        output.append(String.format("%-10s%-10s%s%n", "Last", "First", "Salary"));
+        output.append(String.format("--------------------------%n"));
 
-        //For each employee in employees:
-            //Append "'employee.get("last_name")'     'employee.get("first_name")'     'employee.get(salary)'\n"
+        for (Map<String, String> employee : employees) {
+            output.append(String.format("%-10s%-10s%s%n", employee.get("last_name"),
+                                                        employee.get("first_name"), employee.get("salary")));
+        }
 
-        //return String value of output
-        return null;
+        return String.valueOf(output);
     }
 
     public void main(String[] args) {

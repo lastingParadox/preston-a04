@@ -5,34 +5,40 @@
 
 package baseline;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class EmployeeList {
 
     public Map<String, String> createEmployee(String last, String first, String salary) {
-        //Create a new map "temp"
+        //Creates a map (an employee) from a line in "exercise42_input.txt"
+        Map<String, String> temp = new HashMap<>();
 
-        //Put last for "last_name" in temp
-        //Put first for "first_name" in temp
-        //Put salary for "salary" in temp
+        temp.put("last_name", last);
+        temp.put("first_name", first);
+        temp.put("salary", salary);
 
-        //Return temp
-        return null;
+        return temp;
     }
 
     public List<Map<String, String>> createEmployeeList() throws IOException {
-        //Create List "employees"
+        //Creates a list of employees (maps) for eventual tabular output
+        List<Map<String, String>> employees = new ArrayList<>();
 
-        //Try creating a BufferedReader "reader" that reads from "exercise42_input.txt"
-            //Create string "line" equal to reader.readline()
-            //While line is not null:
-                //String array "employee" is equal to line split by commas
-                //Add createEmployee(employee[0], employee[1], employee[2]) to employees
-                //Line is set equal to the next line.
-
-        //Return employees
-        return null;
+        //Tries to read from "exercise42_input.txt" each employee (each line)
+        try (BufferedReader reader = new BufferedReader(new FileReader("../exercise42/data/exercise42_input.txt"))) {
+            String line = reader.readLine();
+            while (line != null) {
+                String[] employee = line.split(",");
+                employees.add(createEmployee(employee[0], employee[1], employee[2]));
+                line = reader.readLine();
+            }
+        }
+        return employees;
     }
 }
