@@ -10,7 +10,7 @@ class Solution42 {
     + {Static} void main()
 }
 
-Solution42 <|-- EmployeeList
+Solution42 o-- EmployeeList
 
 note right of EmployeeList::createEmployee()
     Contains FileReader to
