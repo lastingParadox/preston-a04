@@ -5,11 +5,12 @@
 
 package baseline;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Solution43 {
 
-    Scanner input = new Scanner(System.in);
+    private static final Scanner input = new Scanner(System.in);
 
     private String validateResponse(String response) {
         //Validates that the user input either "y" or "n"
@@ -24,31 +25,51 @@ public class Solution43 {
     }
 
     public static void main(String[] arg) {
-        //Create new Scanner "input"
+        //Prompts the user for a site name and author name.
+        //Creates a website 'index.html' and optional 'js' and 'css' folders in the "./data/" directory.
+        Solution43 prompter = new Solution43();
 
-        //Prompt the user for the site name
-        //String siteName = user's input
+        System.out.print("Site name: ");
+        String siteName = input.nextLine();
 
-        //Prompt the user for the author
-        //String author = user's input
+        System.out.print("Author: ");
+        String author = input.nextLine();
 
-        //Create new WebsiteGenerator "generator" with constructors 'siteName', 'author', and "../exercise43/data/"
+        WebsiteGenerator generator = new WebsiteGenerator(siteName, author, "./data");
 
-        //Prompt the user if they would want a folder for JavaScript
-            //Validate the response is y/n
-            //If so:
-                //generator.createFolder("js")
+        //Creates the website/'siteName' directory
+        try {
+            generator.createWebsiteFolder();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        //Prompt the user if they would want a folder for CSS
-            //Validate the response is y/n
-            //If so:
-                //generator.createFolder("css")
+        //JavaScript prompt + folder creation
+        System.out.print("Do you want a folder for JavaScript? ");
+        String response = prompter.validateResponse(input.nextLine());
+        if (response.equalsIgnoreCase("y")) {
+            try {
+                generator.createFolder("js");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
+        //CSS prompt + folder creation
+        System.out.print("Do you want a folder for CSS? ");
+        response = prompter.validateResponse(input.nextLine());
+        if (response.equalsIgnoreCase("y")) {
+            try {
+                generator.createFolder("css");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
-        //generator.createFolders()
-        //generator.createHTML()
-        //String output = generator.printOutput()
+        generator.createHTML();
 
-        //Print output
+        String output = generator.returnOutput();
+
+        System.out.println(output);
     }
 }

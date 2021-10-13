@@ -1,6 +1,8 @@
 @startuml
 
 class Solution43 {
+    -{static}Scanner input
+
     -String validateResponse()
     +{static} void main()
 }
@@ -12,6 +14,7 @@ class WebsiteGenerator {
     -boolean js = false
     -boolean css = false
 
+    +void createWebsiteFolder()
     +void createFolder()
     +void createHTML()
     +String returnOutput()

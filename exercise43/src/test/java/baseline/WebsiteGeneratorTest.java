@@ -68,7 +68,9 @@ class WebsiteGeneratorTest {
         }
 
         expected.append(String.format("<head>%n    <title>%s</title>%n", "test moment"));
-        expected.append(String.format("    <meta name=\"author\" content=\"%s\">%n</head>%n", "Zander Preston"));
+        expected.append(String.format("    <meta name=\"author\" content=\"%s\">%n</head>", "Zander Preston"));
+        expected.append(String.format("%n<body>%n    <a href=\"https://www.youtube.com/watch?v=iik25wqIuFo\">Click this</a>"));
+        expected.append(String.format("%n</body>%n"));
 
 
         assertEquals(String.valueOf(expected), String.valueOf(actual));
@@ -77,8 +79,15 @@ class WebsiteGeneratorTest {
     @Test
     void returnOutputTest() {
         //Tests the returnOutput() function, ensuring that the correct statements are logged to the console.
+        try {
+            test.createFolder("js");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         String expected = String.format("Created ./website/%s", "test_moment") +
-                          String.format("%nCreated ./website/%s/index.html", "test_moment");
+                          String.format("%nCreated ./website/%s/index.html", "test_moment") +
+                          String.format("%nCreated ./website/%s/js/", "test_moment");
 
         String actual = test.returnOutput();
 

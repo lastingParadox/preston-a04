@@ -57,7 +57,9 @@ public class WebsiteGenerator {
         try (FileWriter out = new FileWriter(filePath + "/index.html")) {
 
             String html = String.format("<head>%n    <title>%s</title>%n", siteName) +
-                          String.format("    <meta name=\"author\" content=\"%s\">%n</head>", author);
+                          String.format("    <meta name=\"author\" content=\"%s\">%n</head>", author) +
+                          String.format("%n<body>%n    <a href=\"https://www.youtube.com/watch?v=iik25wqIuFo\">Click this</a>") +
+                          String.format("%n</body>");
 
             out.write(html);
 
