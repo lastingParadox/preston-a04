@@ -5,7 +5,24 @@
 
 package baseline;
 
+import java.util.Scanner;
+
 public class Solution43 {
+
+    Scanner input = new Scanner(System.in);
+
+    private String validateResponse(String response) {
+        //Validates that the user input either "y" or "n"
+        while(true) {
+            if(response.equalsIgnoreCase("y") || response.equalsIgnoreCase("n"))
+                return response;
+            else {
+                System.out.print("Invalid response, please input y or n.");
+                response = input.nextLine();
+            }
+        }
+    }
+
     public static void main(String[] arg) {
         //Create new Scanner "input"
 
@@ -16,6 +33,17 @@ public class Solution43 {
         //String author = user's input
 
         //Create new WebsiteGenerator "generator" with constructors 'siteName', 'author', and "../exercise43/data/"
+
+        //Prompt the user if they would want a folder for JavaScript
+            //Validate the response is y/n
+            //If so:
+                //generator.createFolder("js")
+
+        //Prompt the user if they would want a folder for CSS
+            //Validate the response is y/n
+            //If so:
+                //generator.createFolder("css")
+
 
         //generator.createFolders()
         //generator.createHTML()

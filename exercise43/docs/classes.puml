@@ -1,7 +1,8 @@
 @startuml
 
 class Solution43 {
-    {static} void main()
+    -String validateResponse()
+    +{static} void main()
 }
 
 class WebsiteGenerator {
@@ -11,8 +12,7 @@ class WebsiteGenerator {
     -boolean js = false
     -boolean css = false
 
-    -String validateResponse(String response)
-    +void createFolders()
+    +void createFolder()
     +void createHTML()
     +String returnOutput()
 }
@@ -21,13 +21,13 @@ Solution43 o-- WebsiteGenerator
 
 note left of WebsiteGenerator::createHTML
     Contains FileWriter to
-    ./website/author/index.html
+    ./siteName/author/index.html
 end note
 
-note left of WebsiteGenerator::createFolders
+note left of WebsiteGenerator::createFolder
     Potentially creates directories
-    ./website/author/js
-    ./website/author/css
+    ./siteName/author/js
+    ./siteName/author/css
 end note
 
 @enduml
