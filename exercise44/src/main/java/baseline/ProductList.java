@@ -7,22 +7,26 @@ package baseline;
 
 public class ProductList {
 
-    //Create private final array of Items products
+    private final Item[] products;
 
     ProductList(Item[] products) {
         //ProductList Constructor
-        //this products = products
+        this.products = products;
     }
 
     public Item[] getItems() {
-        //return products
-        return null;
+        return products;
     }
 
-    //Used in testing that the product object is filled
     @Override
     public String toString() {
-        //return "Products: " + all the items
-        return "";
+        //Used in testing that the product object is filled
+        StringBuilder temp = new StringBuilder();
+
+        for (Item item : products) {
+            temp.append(item.toString());
+        }
+
+        return String.valueOf(temp);
     }
 }

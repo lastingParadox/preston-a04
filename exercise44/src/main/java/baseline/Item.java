@@ -7,26 +7,24 @@ package baseline;
 
 public class Item {
 
-    //Create private final String name
-    //Create private final double price
-    //Create private final integer quantity
+    private final String name;
+    private final double price;
+    private final int quantity;
 
     Item(String name, double price, int quantity) {
         //Item Constructor
-        //this name = name
-        //this price = price
-        //this quantity = quantity
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
     }
 
     public String getName() {
-        //return name
-        return null;
+        return name;
     }
 
     @Override
     public String toString() {
         //Override used in printing the specified item
-        //return "Name: 'name'\nPrice: 'price'\nQuantity: 'quantity'"
-        return "";
+        return String.format("Name: %s%nPrice: %.2f%nQuantity: %d%n", name, price, quantity);
     }
 }
