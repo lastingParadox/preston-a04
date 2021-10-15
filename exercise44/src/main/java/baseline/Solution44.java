@@ -60,14 +60,15 @@ public class Solution44 {
     }
 
     public static void main(String[] arg) {
-        //Create new Solution44 "prompter"
-        //Create new ProductList "products" equal to prompter.createProductList()
+        //Creates a product list from the products in exercise44_input.txt
+        //Prompts the user to input a product name and returns the info associated with the item.
+        Solution44 prompter = new Solution44();
+        ProductList products = prompter.createProductList();
 
-        //String "response" = prompter.promptUser()
+        String response = prompter.promptUser();
+        Item chosenItem = prompter.getListItem(products, response);
 
-        //Create new Item "chosenItem" equal to prompter.getListItem()
-
-        //Print chosenItem
+        System.out.println(chosenItem);
     }
 
 }
