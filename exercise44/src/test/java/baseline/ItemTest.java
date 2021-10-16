@@ -1,3 +1,9 @@
+/*
+ *  UCF COP3330 Fall 2021 Assignment 4 Solutions
+ *  Copyright 2021 Zander Preston
+ */
+
+
 package baseline;
 
 import org.junit.jupiter.api.Test;
