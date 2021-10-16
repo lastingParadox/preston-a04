@@ -14,7 +14,7 @@ public class Solution45 {
 
     private String promptUser() {
         //Prompts the user for the name of the output file.
-        System.out.print("What is the name of the output file?");
+        System.out.print("What is the name of the output file without the extension? ");
         return input.nextLine();
     }
 
@@ -31,19 +31,21 @@ public class Solution45 {
     }
 
     public static void main(String[] arg) {
-        //Create new Solution45 "prompter"
-        //Create new FileReplace "replacer" with File "./data/exercise45_input.txt"
-        //Create new Scanner "input"
+        //Prompts the user to input a filename and returns the new version of the input file.
+        Solution45 prompter = new Solution45();
+        FileReplace replacer = new FileReplace(new File("./data/exercise45_input.txt"));
 
-        //String outputName = prompter.promptUser()
+        String outputName = prompter.promptUser();
 
-        //Replace the chosen word replacer.replaceWord("utilize", "use")
-        //(Replaces capitalized word just in case) replacer.replaceWord("Utilize", "Use")
+        replacer.replaceWord("utilize", "use");
+        replacer.replaceWord("Utilize", "Use");
 
-        //New file "outputFile" = prompter.validateFile(outputName, replacer.getOutputPath
+        File outputFile = prompter.validateFile(outputName, replacer.getOutputPath());
 
-        //replacer.writeFile(outputFile)
+        replacer.writeFile(outputFile);
 
-        //Print replacer.toString()
+        System.out.printf("%nNew Text:%n");
+        System.out.println(replacer);
+
     }
 }

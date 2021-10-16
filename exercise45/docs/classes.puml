@@ -1,6 +1,7 @@
 @startuml
 
 class Solution45 {
+    -{static}Scanner input
     -String promptUser()
     +File validateFile()
     +{static}void main()
