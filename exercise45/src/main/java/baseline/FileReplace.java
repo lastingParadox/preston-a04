@@ -5,57 +5,76 @@
 
 package baseline;
 
-import java.io.File;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FileReplace {
 
-    //Create new private List of strings "lines"
-    //Create new private final String "outputPath"
+    private final List<String> lines;
+    private String outputPath;
 
     FileReplace(File path) {
-        //Create new list of Strings "lines"
-        //Try to read from the file given (BufferedReader "reader)
-            //outputPath = path.getParent()
-            //String line is equal to reader.readLine()
-            //While line is not null:
-                //Add the current line to lines
-                //Line is equal to the next line
-        //This lines is equal to lines
+        //Constructor that reads from the file provided and assigns the lines from it to lines.
+        //Also gets the parent directory of the path provided and assigns it to outputPath.
+        List<String> list = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
+            outputPath = path.getParent();
+            String line = reader.readLine();
+
+            while(line != null) {
+                list.add(line);
+                line = reader.readLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        lines = list;
     }
 
-    public List<String> replaceWord(String originalWord, String newWord) {
-        //For each line in lines:
-            //Set line to line.replace("originalWord", "newWord")
-        //return lines
-        return null;
+    public void replaceWord(String originalWord, String newWord) {
+        //Replaces the chosen word on each line of the list.
+        for (int i = 0; i < lines.size(); i++) {
+            lines.set(i, lines.get(i).replace(originalWord, newWord));
+        }
     }
 
     public String getOutputPath() {
-        //Returns outputPath
-        return null;
+        //Returns the directory to be containing the output file.
+        return outputPath;
     }
 
     public void writeFile(File file) {
-        //Try to create a FileWriter "out" to write to file
-            //Create a new StringBuilder outputText
-            //For each line in lines:
-                //Append line to outputText
-                //If line is not last line:
-                    //Append "%n" to output
-        //file.write(String value of outputText)
+        //Creates and writes the lines from the list of strings in the file specified.
+        try (FileWriter out = new FileWriter(file)) {
+            StringBuilder outputText = new StringBuilder();
+
+            for (int i = 0; i < lines.size(); i++) {
+                outputText.append(lines.get(i));
+
+                if (i != lines.size() - 1)
+                    outputText.append(String.format("%n"));
+            }
+
+            out.write(String.valueOf(outputText));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public String toString() {
-        //Converts all lines to a string. Lines are separated by a new line indicator.
-        //Create a new StringBuilder output
-        //For each line in lines:
-            //Append line to output
-            //If line is not last line:
-                //Append "%n" to output
-        //return String value of output
-        return null;
+        //Overrides the .toString() function to return/print out a formatted list contained in lines
+        StringBuilder outputText = new StringBuilder();
+
+        for (int i = 0; i < lines.size(); i++) {
+            outputText.append(lines.get(i));
+
+            if (i != lines.size() - 1)
+                outputText.append(String.format("%n"));
+        }
+        return String.valueOf(outputText);
     }
 
 }

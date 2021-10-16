@@ -6,30 +6,33 @@
 package baseline;
 
 import java.io.File;
+import java.util.Scanner;
 
 public class Solution45 {
 
-    //Create new final static Scanner "input"
+    private static final Scanner input = new Scanner(System.in);
 
     private String promptUser() {
-        //Print "What is the name of the output file?"
-        //return user's input
-        return "";
+        //Prompts the user for the name of the output file.
+        System.out.print("What is the name of the output file?");
+        return input.nextLine();
     }
 
     public File validateFile(String fileName, String outputPath) {
-        //Create new File "output" = 'outputPath'+ "/'fileName'.txt"
-        //While the file already exists:
-            //Print "Sorry, that file already exists."
-            //fileName = promptUser()
-            //output = new File ('outputPath'+ "/'fileName'.txt")
-        //return output
-        return null;
+        //As a new file is being created, verifies that the file to be written does not exist.
+        //If the file to be written does exist, gets the user to enter another name.
+        File output = new File(String.format("%s/%s.txt", outputPath, fileName));
+        while (output.exists()) {
+            System.out.println("Sorry that file already exists.");
+            fileName = promptUser();
+            output = new File(String.format("%s/%s.txt", outputPath, fileName));
+        }
+        return output;
     }
 
     public static void main(String[] arg) {
         //Create new Solution45 "prompter"
-        //Create new FileReplace "replacer" with String "./data/exercise45_input.txt"
+        //Create new FileReplace "replacer" with File "./data/exercise45_input.txt"
         //Create new Scanner "input"
 
         //String outputName = prompter.promptUser()
