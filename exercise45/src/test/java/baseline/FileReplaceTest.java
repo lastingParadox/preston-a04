@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FileReplaceTest {
 
-    FileReplace test = new FileReplace(new File("./data/exercise45_input.txt"));
+    FileReplace test = new FileReplace(new File("./data/test.txt"));
 
     @Test
     void readFileTest() {
