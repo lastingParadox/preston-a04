@@ -5,7 +5,20 @@
 
 package baseline;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Solution41 {
+
+    public void writeOutput(File outputFile, String output) {
+        //Writes the output given to the file given
+        try (FileWriter out = new FileWriter(outputFile)) {
+            out.write(output);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String[] arg) {
         //Create new NameSorter "sorter" with constructor new File("./data/exercise41_input.txt")

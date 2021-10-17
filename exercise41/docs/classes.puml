@@ -1,5 +1,6 @@
 @startuml
 class Solution41 {
+    +void writeOutput()
     +{static} void main()
 }
 
@@ -16,9 +17,9 @@ note right of NameSorter::createListofNames()
     inputFile
 end note
 
-note right of Solution41::main
+note right of Solution41::writeOutput
     Contains FileWriter to
-    exercise41_output.txt
+    outputFile provided
 end note
 
 Solution41 o-- NameSorter
