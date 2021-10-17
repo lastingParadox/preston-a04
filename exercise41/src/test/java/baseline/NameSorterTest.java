@@ -53,7 +53,4 @@ class NameSorterTest {
 
         assertEquals(expected, actual);
     }
-
-
-
 }

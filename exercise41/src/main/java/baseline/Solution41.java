@@ -8,6 +8,7 @@ package baseline;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 public class Solution41 {
 
@@ -21,16 +22,17 @@ public class Solution41 {
     }
 
     public static void main(String[] arg) {
-        //Create new NameSorter "sorter" with constructor new File("./data/exercise41_input.txt")
+        //Reads in a list of names from the input file and outputs the sorted names in a tabular format to the output.
+        Solution41 writer = new Solution41();
+        NameSorter sorter = new NameSorter(new File("./data/exercise41_input.txt"));
 
-        //Create new List of Strings "names" and set it equal to sorter.createListOfNames()
-        //names is set equal to sorter.sortNames(names)
+        List<String> names = sorter.createListOfNames();
+        names = sorter.sortNames(names);
 
-        //String output is set equal to sorter.listOutput(names).
+        String output = sorter.listOutput(names);
 
-        //Try to write to "./data/exercise41_output.txt" with a FileWriter "out"
-            //out.write(output)
+        writer.writeOutput(new File("./data/exercise41_output.txt"), output);
+        System.out.println(output);
 
-        //Print output.
     }
 }
