@@ -6,7 +6,8 @@ class EmployeeList {
 }
 
 class Solution42 {
-    - String listOutput()
+    + String listOutput()
+    + void writeOutput()
     + {Static} void main()
 }
 
@@ -14,12 +15,12 @@ Solution42 o-- EmployeeList
 
 note right of EmployeeList::createEmployee()
     Contains FileReader to
-    exercise42_input.txt
+    inputFile given
 end note
 
-note right of Solution42::main
+note right of Solution42::writeOutput
     Contains FileWriter to
-    exercise42_output.txt
+    outputFile given
 end note
 
 

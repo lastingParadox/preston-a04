@@ -7,7 +7,7 @@ package baseline;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,7 +33,7 @@ class EmployeeListTest {
     }
 
     @Test
-    void createEmployeeListTest() throws IOException {
+    void createEmployeeListTest() {
         //Tests createEmployeeList(), comparing result to a manually allocated list.
         List<Map<String, String>> expected = new ArrayList<>();
 
@@ -45,13 +45,7 @@ class EmployeeListTest {
         expected.add(test.createEmployee("Xiong", "Fong", "65000"));
         expected.add(test.createEmployee("Zarnecki", "Sabrina", "51500"));
 
-        List<Map<String, String>> actual = new ArrayList<>();
-        //Tries to set actual to the list of employees in "exercise42_input.txt"
-        try {
-            actual = test.createEmployeeList();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        List<Map<String, String>> actual = test.createEmployeeList(new File("./data/test_input.txt"));
 
         assertEquals(expected, actual);
     }

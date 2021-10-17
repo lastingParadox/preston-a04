@@ -5,15 +5,15 @@
 
 package baseline;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class Solution42 {
 
-    private String listOutput(List<Map<String, String>> employees) {
+    public String listOutput(List<Map<String, String>> employees) {
         //Returns the table containing the employees' last names, first names, and salaries.
         StringBuilder output = new StringBuilder();
 
@@ -28,25 +28,27 @@ public class Solution42 {
         return String.valueOf(output);
     }
 
-    public static void main(String[] arg) throws IOException {
+    public void writeOutput(File outputFile, String output) {
+        //Writes the given output to the given output file
+        try (FileWriter out = new FileWriter(outputFile)) {
+            out.write(output);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] arg) {
         //Based on a list of employees in exercise42_input.txt, outputs the list of employees in a tabular format.
         EmployeeList lister = new EmployeeList();
         Solution42 printer = new Solution42();
 
-        //Tries to write to exercise42_output.txt. Closes the writer after the output is written.
-        try (FileWriter out = new FileWriter("../exercise42/data/exercise42_output.txt")) {
+        List<Map<String, String>> employees = lister.createEmployeeList(new File("./data/exercise42_input.txt"));
 
-            List<Map<String, String>> employees = new ArrayList<>();
-            try {
-                employees = lister.createEmployeeList();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        String output = printer.listOutput(employees);
 
-            String output = printer.listOutput(employees);
+        printer.writeOutput(new File("./data/exercise42_output.txt"), output);
 
-            System.out.println(output);
-            out.write(output);
-        }
+        System.out.println(output);
+
     }
 }
