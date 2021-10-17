@@ -5,17 +5,21 @@
 
 package baseline;
 
+import java.io.File;
+import java.util.List;
+import java.util.Map;
+
 public class Solution46 {
 
     public static void main(String[] arg) {
-        //Create FrequencyMap "sorter" with constructor new File ("./data/exercise46_input.txt")
-        //Map of String keys and Integer values "freqMap" is equal to sorter.createFrequencyMap()
+        //Reads in the file provided in the FrequencySorter and returns a histogram of the frequency of each word.
+        FrequencySorter sorter = new FrequencySorter(new File("./data/exercise46_input.txt"));
+        Map<String, Integer> freqMap = sorter.createFrequencyMap();
 
-        //List of Map entries of String keys and integer values "list"
-            //Set equal to sorter.sortedMapList(freqMap).
+        List<Map.Entry<String, Integer>> list = sorter.sortedMapList(freqMap);
 
-        //String output = sorter.histogram(list)
+        String histogram = sorter.histogram(list);
 
-        //Print output
+        System.out.print(histogram);
     }
 }
