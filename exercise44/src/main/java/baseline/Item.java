@@ -19,6 +19,7 @@ public class Item {
     }
 
     public String getName() {
+        //Returns the name of the item.
         return name;
     }
 

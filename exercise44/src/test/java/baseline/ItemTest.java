@@ -3,7 +3,6 @@
  *  Copyright 2021 Zander Preston
  */
 
-
 package baseline;
 
 import org.junit.jupiter.api.Test;

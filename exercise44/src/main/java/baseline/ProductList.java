@@ -15,6 +15,7 @@ public class ProductList {
     }
 
     public Item[] getItems() {
+        //Returns the product list.
         return products;
     }
 

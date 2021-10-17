@@ -3,10 +3,11 @@
  *  Copyright 2021 Zander Preston
  */
 
-
 package baseline;
 
 import org.junit.jupiter.api.Test;
+
+import java.io.File;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,7 +18,7 @@ class Solution44Test {
     @Test
     void createProductListTest() {
         //Verifies that a class containing the items is correctly given from exercise44_input.txt
-        ProductList actualList = test.createProductList();
+        ProductList actualList = test.createProductList(new File("./data/test.json"));
         String actual = actualList.toString();
         String expected = String.format("Name: Widget%nPrice: 25.00%nQuantity: 5%n" +
                                         "Name: Thing%nPrice: 15.00%nQuantity: 5%n" +
@@ -29,7 +30,7 @@ class Solution44Test {
     @Test
     void getListItemTest() {
         //Compares the item gotten from the getListItem() method with a manually assigned item.
-        ProductList products = test.createProductList();
+        ProductList products = test.createProductList(new File("./data/test.json"));
 
         String response = "Widget";
 
