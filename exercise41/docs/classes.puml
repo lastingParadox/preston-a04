@@ -1,22 +1,26 @@
 @startuml
 class Solution41 {
-    Read and sort name list methods
-    ..
-    +List<String> createListofNames()
-    +List<String> sortNames()
-    --
-    Output and run methods
-    ..
-    +String listOutput()
     +{static} void main()
 }
-note right of Solution41::createListofNames()
+
+class NameSorter {
+    -File inputFile
+
+    +List<String> createListofNames()
+    +List<String> sortNames()
+    +String listOutput()
+}
+
+note right of NameSorter::createListofNames()
     Contains FileReader to
-    exercise41_input.txt
+    inputFile
 end note
+
 note right of Solution41::main
     Contains FileWriter to
     exercise41_output.txt
 end note
+
+Solution41 o-- NameSorter
 
 @enduml

@@ -5,67 +5,19 @@
 
 package baseline;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
-import java.util.ArrayList;
-
 public class Solution41 {
 
-    public List<String> createListOfNames() throws IOException {
-        //Creates and returns a list of names from the exercise41_input.txt file.
-        List<String> nameList = new ArrayList<>();
-        //Tries to read the lines, provided the file exists.
-        try (BufferedReader reader = new BufferedReader(new FileReader("../exercise41/data/exercise41_input.txt"))) {
-            String line = reader.readLine();
-            while (line != null) {
-                nameList.add(line);
-                line = reader.readLine();
-            }
-        }
-        return nameList;
-    }
+    public static void main(String[] arg) {
+        //Create new NameSorter "sorter" with constructor new File("./data/exercise41_input.txt")
 
-    public List<String> sortNames(List<String> names) {
-        //Sorts the names in the list using the Collections.sort method
-        Collections.sort(names);
-        return names;
-    }
+        //Create new List of Strings "names" and set it equal to sorter.createListOfNames()
+        //names is set equal to sorter.sortNames(names)
 
-    public String listOutput(List<String> names) {
-        //Returns a string representing the table of sorted names.
-        StringBuilder output = new StringBuilder();
-        output.append(String.format("Total of %d names%n", names.size()));
-        output.append("-----------------");
-        for (String name : names) {
-            output.append(String.format("%n%s", name));
-        }
-        return String.valueOf(output);
-    }
+        //String output is set equal to sorter.listOutput(names).
 
-    public static void main(String[] arg) throws IOException {
-        //Based on a list of names in exercise41_input.txt, sorts and outputs the list.
-        Solution41 sorter = new Solution41();
-        //Creates and or modifies the output file and closes it after the output is sorted and printed.
-        try (FileWriter out = new FileWriter("../exercise41/data/exercise41_output.txt")) {
+        //Try to write to "./data/exercise41_output.txt" with a FileWriter "out"
+            //out.write(output)
 
-            List<String> names = new ArrayList<>();
-            try {
-                names = sorter.createListOfNames();
-            }
-            catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            names = sorter.sortNames(names);
-
-            String output = sorter.listOutput(names);
-
-            System.out.println(output);
-            out.write(output);
-        }
+        //Print output.
     }
 }
