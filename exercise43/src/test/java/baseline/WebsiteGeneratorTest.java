@@ -22,11 +22,7 @@ class WebsiteGeneratorTest {
     @Test
     void createWebsiteTest() {
         //Tests the createWebsite() function, ensuring that the folder exists after creation.
-        try {
-            test.createWebsiteFolder();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        test.createWebsiteFolder();
 
         File actual = new File("./data/website/test_moment");
 
@@ -36,11 +32,7 @@ class WebsiteGeneratorTest {
     @Test
     void createFolderTest() {
         //Tests the createFolder() function, ensuring that the js folder exists after creation.
-        try {
-            test.createFolder("js");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        test.createFolder("js");
 
         File actual = new File("./data/website/test_moment/js");
 
@@ -79,11 +71,7 @@ class WebsiteGeneratorTest {
     @Test
     void returnOutputTest() {
         //Tests the returnOutput() function, ensuring that the correct statements are logged to the console.
-        try {
-            test.createFolder("js");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        test.createFolder("js");
 
         String expected = String.format("Created ./website/%s", "test_moment") +
                           String.format("%nCreated ./website/%s/index.html", "test_moment") +

@@ -25,7 +25,7 @@ public class WebsiteGenerator {
         this.filePath = filePath + "/website/" + siteName.toLowerCase().replace(' ', '_');
     }
 
-    public void createWebsiteFolder() throws IOException {
+    public void createWebsiteFolder(){
         //Creates the "./website/'siteName'" folder from the original filePath given
         Path path = Paths.get(this.filePath);
 
@@ -36,7 +36,7 @@ public class WebsiteGenerator {
         }
     }
 
-    public void createFolder(String folderName) throws IOException {
+    public void createFolder(String folderName) {
         //Creates a folder in 'filePath' with the name given
         if (folderName.equals("js"))
             js = true;

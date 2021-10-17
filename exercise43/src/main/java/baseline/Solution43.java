@@ -5,7 +5,6 @@
 
 package baseline;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Solution43 {
@@ -18,7 +17,7 @@ public class Solution43 {
             if(response.equalsIgnoreCase("y") || response.equalsIgnoreCase("n"))
                 return response;
             else {
-                System.out.print("Invalid response, please input y or n.");
+                System.out.print("Invalid response, please input y or n. ");
                 response = input.nextLine();
             }
         }
@@ -38,32 +37,20 @@ public class Solution43 {
         WebsiteGenerator generator = new WebsiteGenerator(siteName, author, "./data");
 
         //Creates the website/'siteName' directory
-        try {
-            generator.createWebsiteFolder();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        generator.createWebsiteFolder();
 
         //JavaScript prompt + folder creation
         System.out.print("Do you want a folder for JavaScript? ");
         String response = prompter.validateResponse(input.nextLine());
         if (response.equalsIgnoreCase("y")) {
-            try {
-                generator.createFolder("js");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            generator.createFolder("js");
         }
 
         //CSS prompt + folder creation
         System.out.print("Do you want a folder for CSS? ");
         response = prompter.validateResponse(input.nextLine());
         if (response.equalsIgnoreCase("y")) {
-            try {
-                generator.createFolder("css");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            generator.createFolder("css");
         }
 
         generator.createHTML();
